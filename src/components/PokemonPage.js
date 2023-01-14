@@ -7,6 +7,11 @@ import { Container } from "semantic-ui-react";
 function PokemonPage() {
   const jsonURL = "http://localhost:3001/pokemon"
   const [data, setData] = useState([])
+  const [searchInput, setSearchInput] = useState("")
+
+  const handleUserInput = (e) => {
+    setSearchInput(e.target.value) 
+  }
   
   useEffect(() => {
     fetch(jsonURL)
@@ -20,9 +25,9 @@ function PokemonPage() {
       <br />
       <PokemonForm />
       <br />
-      <Search />
+      <Search searchInput={ searchInput } handleUserInput={handleUserInput}/>
       <br />
-      <PokemonCollection data={ data }/>
+      <PokemonCollection data={ data } searchInput={searchInput}/>
     </Container>
   );
 }
