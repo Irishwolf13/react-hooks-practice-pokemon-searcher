@@ -1,6 +1,6 @@
 import React from "react";
 
-function Search({ searchInput, handleUserInput}) {
+function Search({ searchInput, handleUserInput }) {
 
   return (
     <div className="ui search">

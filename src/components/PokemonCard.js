@@ -19,7 +19,7 @@ function PokemonCard( { poke }) {
         <div className="extra content">
           <span>
             <i className="icon heartbeat red" />
-            {poke.hitPoints} hp
+            {poke.hp} hp
           </span>
         </div>
       </div>

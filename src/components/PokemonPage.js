@@ -12,18 +12,21 @@ function PokemonPage() {
   const handleUserInput = (e) => {
     setSearchInput(e.target.value) 
   }
-  
   useEffect(() => {
     fetch(jsonURL)
     .then(response => response.json())
     .then(rawData => setData(rawData))
   },[])
 
+  const handleNewPoke = (newPokemon) => {
+    setData([...data, newPokemon])
+  }
+
   return (
     <Container>
       <h1>Pokemon Searcher</h1>
       <br />
-      <PokemonForm />
+      <PokemonForm handleNewPoke={handleNewPoke}/>
       <br />
       <Search searchInput={ searchInput } handleUserInput={handleUserInput}/>
       <br />
